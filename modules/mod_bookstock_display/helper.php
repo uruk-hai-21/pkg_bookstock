@@ -12,7 +12,6 @@ class ModBookstockDisplayHelper
             ->select($db->quoteName('qty'))
             ->from($db->quoteName('#__bookstock'))
             ->where($db->quoteName('id') . ' = 1');
-
         $db->setQuery($query);
         $result = $db->loadResult();
 
