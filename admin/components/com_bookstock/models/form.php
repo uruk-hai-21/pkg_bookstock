@@ -1,12 +1,29 @@
 <?php
 defined('_JEXEC') or die;
 
-use Joomla\CMS\Form\Form;
+use Joomla\CMS\Factory;
+use Joomla\CMS\MVC\Model\FormModel;
 
-class BookstockModelForm extends Form
+class BookstockModelBookstock extends FormModel
 {
-    protected function getForm($data = [], $loadData = true)
+    protected function loadFormData()
     {
-        return parent::getForm($data, $loadData);
+        $db = Factory::getDbo();
+
+        $query = $db->getQuery(true)
+            ->select('*')
+            ->from($db->quoteName('#__bookstock'))
+            ->where($db->quoteName('id') . ' = 1');
+
+        $db->setQuery($query);
+
+        $data = $db->loadAssoc();
+
+        // Se non esiste ancora la riga → fallback
+        if (!$data) {
+            $data = ['qty' => 0];
+        }
+
+        return $data;
     }
 }
