@@ -16,10 +16,8 @@ class BookstockModelBookstock extends FormModel
             ->where($db->quoteName('id') . ' = 1');
 
         $db->setQuery($query);
-
         $data = $db->loadAssoc();
 
-        // Se non esiste ancora la riga → fallback
         if (!$data) {
             $data = ['qty' => 0];
         }
