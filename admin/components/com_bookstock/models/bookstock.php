@@ -32,13 +32,17 @@ class BookstockModelBookstock extends AdminModel
 
     public function save($data)
     {
-        $db = Factory::getContainer()->get(DatabaseInterface::class);
+        $db = Factory::getDbo();
+    
         $query = $db->getQuery(true)
             ->update($db->quoteName('#__bookstock'))
-            ->set($db->quoteName('quantity') . ' = ' . (int)$data['quantity'])
+            ->set($db->quoteName('qty') . ' = ' . (int) $data['qty'])
             ->where($db->quoteName('id') . ' = 1');
-            
-        $db->setQuery($query)->execute();
+    
+        $db->setQuery($query);
+        $db->execute();
+    
         return true;
     }
+    
 }

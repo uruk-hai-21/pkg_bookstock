@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS `#__bookstock` (
-  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `quantity` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 DEFAULT COLLATE=utf8mb4_unicode_ci;
+  `id` INT(11) NOT NULL PRIMARY KEY,
+  `qty` INT(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `#__bookstock` (`quantity`) VALUES (0);
+INSERT INTO `#__bookstock` (`id`, `qty`) VALUES (1, 0)
+  ON DUPLICATE KEY UPDATE qty = qty;

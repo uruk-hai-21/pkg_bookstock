@@ -2,23 +2,20 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
-use Joomla\Database\DatabaseInterface;
 
 class ModBookstockDisplayHelper
 {
-    public static function getStockQuantity()
+    public static function getBookQty()
     {
-        try {
-            $db = Factory::getContainer()->get(DatabaseInterface::class);
-            $query = $db->getQuery(true)
-                ->select($db->quoteName('quantity'))
-                ->from($db->quoteName('#__bookstock'))
-                ->where($db->quoteName('id') . ' = 1');
-                
-            return $db->setQuery($query)->loadResult();
-        } catch (\Exception $e) {
-            Factory::getApplication()->enqueueMessage($e->getMessage(), 'error');
-            return 0;
-        }
+        $db = Factory::getDbo();
+        $query = $db->getQuery(true)
+            ->select($db->quoteName('qty'))
+            ->from($db->quoteName('#__bookstock'))
+            ->where($db->quoteName('id') . ' = 1');
+
+        $db->setQuery($query);
+        $result = $db->loadResult();
+
+        return $result !== null ? (int) $result : 0;
     }
 }
