@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="5.0" client="site" method="upgrade">
+    <name>MOD_BOOKSTOCK_DISPLAY</name>
+    <version>1.0.0</version>
+    <creationDate>2025-06-04</creationDate>
+    <author>Autore</author>
+    <authorEmail>email@example.com</authorEmail>
+    <authorUrl>https://www.example.com</authorUrl>
+    <description>Mostra la quantità disponibile di libri</description>
+    
+    <files>
+        <filename module="mod_bookstock_display">mod_bookstock_display.php</filename>
+        <filename>helper.php</filename>
+        <folder>tmpl</folder>
+        <folder>media</folder>
+        <folder>language</folder>
+    </files>
+    
+    <media folder="media" destination="mod_bookstock_display">
+        <folder>css</folder>
+        <folder>js</folder>
+    </media>
+    
+    <languages folder="language/en-GB">
+        <language tag="en-GB">en-GB.mod_bookstock_display.ini</language>
+        <language tag="en-GB">en-GB.mod_bookstock_display.sys.ini</language>
+    </languages>
+</extension>

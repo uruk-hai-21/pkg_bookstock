@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" method="upgrade" version="5.0">
+    <name>COM_BOOKSTOCK</name>
+    <version>1.0.0</version>
+    <creationDate>2025-06-04</creationDate>
+    <author>Autore</author>
+    <authorEmail>email@example.com</authorEmail>
+    <authorUrl>https://www.example.com</authorUrl>
+    <copyright>Copyright</copyright>
+    <license>GNU GPL v3</license>
+    <description>Gestione magazzino libri</description>
+
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <administration>
+        <menu>COM_BOOKSTOCK</menu>
+        <files>
+            <filename>controller.php</filename>
+            <folder>models</folder>
+            <folder>views</folder>
+            <folder>sql</folder>
+            <folder>forms</folder>
+        </files>
+        <languages folder="admin/language">
+            <language tag="en-GB">en-GB/en-GB.com_bookstock.ini</language>
+            <language tag="en-GB">en-GB/en-GB.com_bookstock.sys.ini</language>
+        </languages>
+    </administration>
+</extension>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="package" method="upgrade" version="5.0">
+    <name>PKG_BOOKSTOCK</name>
+    <version>1.0.0</version>
+    <creationDate>2025-06-04</creationDate>
+    <author>Autore</author>
+    <url>https://www.example.com</url>
+    <packagename>bookstock</packagename>
+    <description>Pacchetto gestione magazzino libri</description>
+
+    <files>
+        <file type="component" id="com_bookstock" client="administrator">admin/components/com_bookstock</file>
+        <file type="module" id="mod_bookstock_display" client="site">modules/mod_bookstock_display</file>
+    </files>
+
+    <scriptfile>script.php</scriptfile>
+</extension>
